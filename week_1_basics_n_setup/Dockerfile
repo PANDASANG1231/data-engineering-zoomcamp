@@ -12,6 +12,9 @@ RUN apt-get update \
 RUN wget https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip \
  && sudo unzip terraform_1.6.6_linux_amd64.zip -d /usr/local/bin
 
+## Initiate Git variable
+RUN git config --global user.email "zwj63518583@gmail.com"
+RUN git config --global user.name "pandasang1231"
 
 
 
