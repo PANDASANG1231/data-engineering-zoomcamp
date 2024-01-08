@@ -1,3 +1,5 @@
 ./week_1_basics_n_setup/**/*.json
 
-./week_1_basics_n_setup/**/*terraform.**
+./week_1_basics_n_setup/**/.terraform.lock.hcl
+./week_1_basics_n_setup/**/terraform.tfstate
+./week_1_basics_n_setup/**/terraform.tfstate.backup
