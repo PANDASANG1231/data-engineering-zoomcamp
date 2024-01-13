@@ -12,13 +12,13 @@ RUN apt-get update \
 RUN wget https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip \
  && sudo unzip terraform_1.6.6_linux_amd64.zip -d /usr/local/bin
 
+
 ## Initiate Git variable
 RUN git config --global user.email "zwj63518583@gmail.com"
 RUN git config --global user.name "pandasang1231"
 
-
-
-
+RUN mkdir /root/.ssh
+COPY github_ssh_key /root/.ssh/
 
 ## Command of build the docker
 ## docker build -t wenjia/pytorch:1.13.1-cuda11.6-cudnn8-runtime -f .\Dockerfile .
