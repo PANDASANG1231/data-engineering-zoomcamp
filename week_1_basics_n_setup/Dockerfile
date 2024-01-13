@@ -19,6 +19,7 @@ RUN git config --global user.name "pandasang1231"
 
 RUN mkdir /root/.ssh
 COPY github_ssh_key /root/.ssh/
+RUN chmod -R 600 /root/.ssh/
 
 ## Command of build the docker
 ## docker build -t wenjia/pytorch:1.13.1-cuda11.6-cudnn8-runtime -f .\Dockerfile .
