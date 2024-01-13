@@ -3,3 +3,7 @@
 ./week_1_basics_n_setup/**/.terraform.lock.hcl
 ./week_1_basics_n_setup/**/terraform.tfstate
 ./week_1_basics_n_setup/**/terraform.tfstate.backup
+
+./week_1_basics_n_setup/github_ssh_key
+./week_1_basics_n_setup/github_ssh_key/*
+
