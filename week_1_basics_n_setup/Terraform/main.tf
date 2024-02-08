@@ -23,3 +23,4 @@ resource "google_bigquery_dataset" "demo_dataset_wenjia" {
   dataset_id = "demo_dataset_wenjia"
   location   = var.loaction
 }
+
