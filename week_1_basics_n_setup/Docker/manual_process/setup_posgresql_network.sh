@@ -16,6 +16,8 @@ docker run -itd \
     --name pgadmin \
     --network=pg-network \
     -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
-    -e PGADMIN_DEFAULT_PASSWORD="root" \
-    -p 8080:80 \
+    -e PGADMIN_DEFAULT_PASSWORD="admin" \
+    -p 80:80 \
     dpage/pgadmin4
+
+python3 ingest_data.py --username admin --password admin --database_name nytaxi

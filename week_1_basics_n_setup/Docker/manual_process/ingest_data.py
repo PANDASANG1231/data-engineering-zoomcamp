@@ -37,10 +37,8 @@ engine = create_engine(connection_string)
 if not database_exists(engine.url):
     create_database(engine.url)
 
-
-
 # Get data if not downloaded
-if os.path.exists("yellow_tripdata_2021-01.csv.gz"):
+if not os.path.exists("yellow_tripdata_2021-01.csv.gz"):
 
     # Download data if it is not existed
     url = "https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
@@ -53,7 +51,6 @@ if os.path.exists("yellow_tripdata_2021-01.csv.gz"):
     os.remove("yellow_tripdata_2021-01.csv.gz")
     df.to_csv("yellow_tripdata_2021-01.csv", index=False)
 
-
 # Ingest data into postgre sql
 b_output = subprocess.check_output(["wc", "-l", "yellow_tripdata_2021-01.csv"])
 s_output = str(b_output).strip("b'").split(" ")[0]
@@ -65,3 +62,6 @@ for chunk in tqdm(data_chunk_iters, total=round(shape/1000)):
     chunk.tpep_pickup_datetime = pd.to_datetime(chunk.tpep_pickup_datetime)
     chunk.tpep_dropoff_datetime = pd.to_datetime(chunk.tpep_dropoff_datetime)
     chunk.to_sql(name="taxi_drip", con=engine, if_exists="append", index=False)
+
+# Remove original csv file 
+os.system("rm -r yellow_tripdata_2021-01.csv")
