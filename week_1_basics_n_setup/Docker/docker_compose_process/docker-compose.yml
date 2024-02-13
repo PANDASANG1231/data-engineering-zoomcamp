@@ -8,7 +8,7 @@ services:
     volumes:
        - ./nytaxi_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5431:5432"
     restart: unless-stopped
     
   pgadmin:
@@ -17,7 +17,7 @@ services:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=admin
     ports:
-      - "80:80"
+      - "81:80"
     restart: unless-stopped
     depends_on:
       - postgre
